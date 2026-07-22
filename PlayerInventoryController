@@ -1,0 +1,13 @@
+using UnityEngine;
+
+public class PlayerInventoryController : MonoBehaviour
+{
+    public Inventory inventory;
+    public CraftingSystem craftingSystem;
+
+    void awake()
+    {
+        inventory = new Inventory();
+        craftingSystem = new CraftingSystem(inventory);
+    }
+}
