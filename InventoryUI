@@ -1,0 +1,28 @@
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections.Generic;
+
+public class InventoryUI : MonoBehaviour
+{
+    public PlayerInventoryController player;
+    public Transform listParent;
+    public GameObject entryPrefab;
+
+    void Update()
+    {
+        Refresh();
+    }
+
+    void Refresh()
+    {
+        foreach (Transform child in listParent)
+            Destroy(child.gameObject);
+
+        //foreach (var entry in player.inventory.GetAllItems())
+        {
+            GameObject obj = Instantiate(entryPrefab, listParent);
+            //obj.GetComponent<Text>().text = entry.Key.itemName + " x" + entry.Value;
+        }
+    }
+}
